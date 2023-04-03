@@ -1,0 +1,127 @@
+ /* h1 {
+    
+} */
+ /* body{
+    background-color: rgba(230, 230, 25, 0.658);
+} */
+ @import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@500&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+
+ body {
+     font-family: 'Radio Canada', sans-serif;
+     background-color: #00235B;
+ }
+
+ #select-puppet {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .title {
+     color: white;
+     font-size: 50px;
+     font-family: 'Black Ops One', cursive;
+     /* width: 310px;
+     height: 50px; */
+     /* background-color: rgb(12, 170, 123); */
+
+ }
+
+ .subtitle {
+     color: #E21818;
+     font-size: 30px;
+ }
+
+ .cards, .cards2 {
+     display: flex;
+     gap: 10px;
+ }
+
+
+ .tarjeta-de-mokepon {
+     width: 180px;
+     height: 120px;
+     background: #FFDD83;
+     padding: 10px;
+     box-sizing: border-box;
+     margin: 10px;
+     border: 1px solid hotpink;
+     border-radius: 20px;
+     display: flex;
+     justify-content: center;
+     align-content: center;
+ }
+
+ .tarjeta-de-mokepon img {
+     width: 80px;
+ }
+
+ input {
+     display: none;
+ }
+
+ #button-select {
+     width: 180px;
+     height: 40px;
+     border: 1px solid #E21818;
+     background-color: #FFDD83;
+     border-radius: 10px;
+     font-family: 'Space Grotesk', sans-serif;
+     color: white;
+     margin-top: 20px;
+ }
+
+ #select-attack {
+     flex-direction: column;
+     align-items: center;
+ }
+
+ .attacks{
+    background-color: #FFDD83;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: transparent;
+    width: 200px;
+ }
+
+#messages{
+    width: 280px;
+    background-color: pink;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+#button-reset{
+ border: transparent;
+ color: #a4359b;
+ background-color: azure;
+}
+
+.marcador{
+    display: grid;
+    grid-template-columns: 100px 100px;
+    text-align: center;
+    color: aliceblue;
+}
+
+.attacks-player, .attacks-enemie{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 360px){
+    .cards, .cards2{
+        display: flex;
+        flex-direction: column;
+    }
+}

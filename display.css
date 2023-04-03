@@ -1,0 +1,28 @@
+
+html {
+    font-family: helvetica, arial, sans-serif;
+    letter-spacing: 1px;
+    padding-top: 10px;
+  }
+  
+  article {
+    background-color: rgb(0, 255, 76);
+  }
+  
+  article span {
+    background-color: black;
+    color: white;
+    margin: 1px;
+  }
+  
+  article,
+  span {
+    padding: 10px;
+    border-radius: 7px;
+  }
+  
+  article,
+  div {
+    margin: 20px;
+  }
+  
