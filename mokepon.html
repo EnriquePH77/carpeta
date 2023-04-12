@@ -6,8 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mokepon🔥🌵💧</title>
-    <!-- Podemos usar el atributo defer para evitar que el script se cargue antes que el html -->
-    <script src="./javascript/mokepon.js"></script>
     <link rel="stylesheet" href="./mokepon.css">
 </head>
 
@@ -18,32 +16,42 @@
         <h2 class="subtitle">Choose your puppet: </h2>
         <div class="cards">
             <!--podemos agrupar por atributo name o con la etiqueta label y su atributo for, agarrando el id del input.-->
+            <input type="radio" name="mascota" id="hipodoge">
             <label class="tarjeta-de-mokepon" for="hipodoge">
                 <p>Hipodoge</p>
                 <img src="assets/mokepons_mokepon_hipodoge_attack.png" alt="Hipodoguito">
             </label>
-            <input type="radio" name="mascota" id="hipodoge"><br>
 
+            <input type="radio" name="mascota" id="capipepo">
             <label class="tarjeta-de-mokepon" for="capipepo">
                 <p>Capipepo</p>
                 <img src="/assets/mokepons_mokepon_capipepo_attack.png" alt="Capipepito">
             </label>
-            <input type="radio" name="mascota" id="capipepo"><br>
 
+            <input type="radio" name="mascota" id="ratigueya">
             <label class="tarjeta-de-mokepon" for="ratigueya">
                 <p>Ratigueya</p>
                 <img src="/assets/mokepons_mokepon_ratigueya_attack.png" alt="Ratigueyita">
             </label>
-            <input type="radio" name="mascota" id="ratigueya"><br>
 
-            <label class="tarjeta-de-mokepon" for="langostelvis">Langostelvis</label>
-            <input type="radio" name="mascota" id="langostelvis"><br>
+            <!-- <input type="radio" name="mascota" id="langostelvis">
+            <label class="tarjeta-de-mokepon" for="langostelvis">
+                <p>Langostelvis</p>
+                <img src="/assets/mokepons_mokepon_capipepo_attack.png" alt="Capipepito">
+            </label>
 
-            <label class="tarjeta-de-mokepon" for="tucapalma">Tucapalma</label>
-            <input type="radio" name="mascota" id="tucapalma"><br>
+            <input type="radio" name="mascota" id="tucapalma">
+            <label class="tarjeta-de-mokepon" for="tucapalma">
+                <p> Tucapalma</p>
+                <img src="/assets/mokepons_mokepon_capipepo_attack.png" alt="Capipepito">
+            </label>
 
-            <label class="tarjeta-de-mokepon" for="pydos">Pydos</label>
-            <input type="radio" name="mascota" id="pydos"><br>
+            <input type="radio" name="mascota" id="pydos">
+            <label class="tarjeta-de-mokepon" for="pydos">
+                <p> Pydos</p>
+                <img src="/assets/mokepons_mokepon_capipepo_attack.png" alt="Capipepito">
+            </label> -->
+
         </div>
         <button id="button-select">Select</button>
 
@@ -53,10 +61,10 @@
         <h1 class="title" id="titulo">💧Mokepon🔥</h1>
         <h2 class="subtitle">Choose your Attack!: </h2>
 
-        <div class="cards2"> 
-                <button id="button-fire" class="attacks">Fire🔥</button>
-                <button id="button-water" class="attacks">Water💧</button>
-                <button id="button-earth" class="attacks">Earth🌵</button>
+        <div class="cards2">
+            <button id="button-fire" class="attacks">Fire🔥</button>
+            <button id="button-water" class="attacks">Water💧</button>
+            <button id="button-earth" class="attacks">Earth🌵</button>
         </div>
 
         <div id="messages">
@@ -81,7 +89,8 @@
         </div>
     </section>
 
-
+    <!-- Podemos usar el atributo defer para evitar que el script se cargue antes que el html -->
+    <script src="./javascript/mokepon.js"></script>
 </body>
 
 </html>

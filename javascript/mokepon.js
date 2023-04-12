@@ -6,49 +6,91 @@ function aleatorio(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+const sectionSelectAttack = document.getElementById('select-attack')
+const sectionReset = document.getElementById('restart')
+const buttonSelect = document.getElementById("button-select");
+const buttonFire = document.getElementById("button-fire");
+const buttonWater = document.getElementById("button-water");
+const buttonEarth = document.getElementById("button-earth");
+const buttonResetear = document.getElementById("button-reset")
+
+const sectionSelectPuppet = document.getElementById('select-puppet');
+const inputHipodoge = document.getElementById("hipodoge");
+const inputCapipepo = document.getElementById("capipepo");
+const inputRatigueya = document.getElementById("ratigueya");
+const spanPuppetPlayer = document.getElementById("puppet-player");
+
+const spanPuppetEnemie = document.getElementById("puppet-enemie");
+
+const spanLifesPlayer = document.getElementById("lifes-player");
+const spanLifesEnemie = document.getElementById("lifes-enemie");
+
+const sectionMessages = document.getElementById("resulta");
+const playerAttackss = document.getElementById("player-Attackss");
+const enemieAttackss = document.getElementById("enemie-Attackss");
+
+let mokepones = []
+
 /* Se establecen varias variables y se les asignan valores iniciales. playerAttack y enemieAttack se establecen en una cadena vacía (""), lifesPlayer y lifesEnemie se establecen en 3.*/
-let playerAttack 
-let enemieAttack 
+let playerAttack
+let enemieAttack
 let lifesPlayer = 3;
 let lifesEnemie = 3;
 
+class Mokepon {
+  constructor(name, picture, life, attackes) {//propiedades del objeto
+    this.name = name;
+    this.picture = picture;
+    this.life = life;
+    this.attacks = []
+  }
+}
 
+let hipodoge = new Mokepon('hipodoge', 'assets/mokepons_mokepon_hipodoge_attack.png', 5)
+
+let capipepo = new Mokepon('Capipepo', '/assets/mokepons_mokepon_capipepo_attack.png', 5)
+
+let ratigueya = new Mokepon('Ratigueya', '/assets/mokepons_mokepon_ratigueya_attack.png', 5)
+
+//mokepones.push(hipodoge, capipepo, ratigueya)
+hipodoge.attacks.push(
+  {name: '💧', id: 'button-water'},
+  {name: '💧', id: 'button-water'},
+  {name: '💧', id: 'button-water'},
+  {name: '🔥', id: 'button-fire'},
+  {name: '🌵', id: 'button-earth'}
+)
+capipepo.attacks.push(
+  {name: '🌵', id: 'button-earth'},
+  {name: '🌵', id: 'button-earth'},
+  {name: '🌵', id: 'button-earth'},
+  {name: '💧', id: 'button-water'},
+  {name: '🔥', id: 'button-fire'}
+)
+ratigueya.attacks.push(
+  {name: '🔥', id: 'button-fire'},
+  {name: '🔥', id: 'button-fire'},
+  {name: '🔥', id: 'button-fire'},
+  {name: '💧', id: 'button-water'},
+  {name: '🌵', id: 'button-earth'}
+)
+console.log(mokepones);
 
 /* La función start se ejecuta después de que se carga la página. Se obtienen varios elementos del DOM y se les asignan eventos de escucha de clic.*/
 function start() {
-  let sectionSelectAttack = document.getElementById('select-attack')
-  sectionSelectAttack.style.display = 'none'
-
-  let sectionReset = document.getElementById('restart')
-  sectionReset.style.display = 'none'
-
-  let buttonSelect = document.getElementById("button-select");
+  sectionSelectAttack.style.display = 'none';
+  sectionReset.style.display = 'none';
   buttonSelect.addEventListener("click", puppets);
-
-  let buttonFire = document.getElementById("button-fire");
   buttonFire.addEventListener("click", fireAttack);
-  let buttonWater = document.getElementById("button-water");
   buttonWater.addEventListener("click", waterAttack);
-  let buttonEarth = document.getElementById("button-earth");
   buttonEarth.addEventListener("click", earthAttack);
-
-  let buttonResetear = document.getElementById("button-reset")
-  buttonResetear.addEventListener('click', resetGame)
+  buttonResetear.addEventListener('click', resetGame);
 }
 
 // La función puppets se llama cuando se hace clic en el botón Select en la pantalla de selección de títeres. Esta función obtiene el valor del títere seleccionado por el jugador y llama a la función enemies para seleccionar un títere aleatorio para el oponente. Luego, muestra la pantalla de selección de ataque y deshabilita el botón Select.*/
 function puppets() {
-  let sectionSelectPuppet = document.getElementById('select-puppet')
-  sectionSelectPuppet.style.display = 'none'
-
-  let sectionSelectAttack = document.getElementById('select-attack')
-  sectionSelectAttack.style.display = 'flex'
-  
-
-  let inputHipodoge = document.getElementById("hipodoge");
-  let inputCapipepo = document.getElementById("capipepo");
-  let inputRatigueya = document.getElementById("ratigueya");
-  let spanPuppetPlayer = document.getElementById("puppet-player");
+  sectionSelectPuppet.style.display = 'none';
+  sectionSelectAttack.style.display = 'flex';
   let continu = 1;
 
   if (inputHipodoge.checked) {
@@ -63,7 +105,7 @@ function puppets() {
   }
   if (continu == 1) {
     enemies();
-    let buttonSelect = document.getElementById('button-select')
+
     buttonSelect.disabled = true;
   }
 }
@@ -87,7 +129,7 @@ function earthAttack() {
 /* La función enemies selecciona un títere aleatorio para el oponente y lo muestra en la pantalla.*/
 function enemies() {
   let shuffleNumber = aleatorio(1, 3);
-  let spanPuppetEnemie = document.getElementById("puppet-enemie");
+
   if (shuffleNumber == 1) {
     spanPuppetEnemie.innerHTML = "Hipodoge";
   } else if (shuffleNumber == 2) {
@@ -111,9 +153,6 @@ function attackEnemie() {
 
 /* La función combat compara los ataques del jugador y del oponente y determina el resultado de la ronda (empate, victoria del jugador o victoria del oponente). Se actualiza la cantidad de vidas restantes y se muestra el resultado en la pantalla. La función checkLifes se llama para comprobar si el juego ha terminado.*/
 function combat() {
-  let spanLifesPlayer = document.getElementById("lifes-player");
-  let spanLifesEnemie = document.getElementById("lifes-enemie");
-
   if (playerAttack == enemieAttack) {
     //winner = 'Tie'
     createMessage("Tie");
@@ -134,49 +173,24 @@ function combat() {
   checkLifes();
 }
 
-/*La función createButtonReset crea un botón para reiniciar el juego.
-function createButtonReset() {
-  let sectionReset = document.getElementById('restart')
-  let buttonReset = document.createElement('button')
-  buttonReset.innerHTML = 'Reset'
-
-  sectionReset.appendChild(buttonReset);
-  buttonReset.addEventListener('click', resetGame)
-}*/
-
 /* La función createMessage crea elementos p para mostrar el resultado de cada ronda de combate y los agrega al DOM.*/
 function createMessage(result) {
-  let sectionMessages = document.getElementById("resulta");
-  let playerAttackss = document.getElementById("player-Attackss");
-  let enemieAttackss = document.getElementById("enemie-Attackss");
-
   let newPlayerAttack = document.createElement("p");
   let newEnemieAttack = document.createElement("p");
-
   sectionMessages.innerHTML = result
   newPlayerAttack.innerHTML = playerAttack;
   newEnemieAttack.innerHTML = enemieAttack;
-
-
   playerAttackss.appendChild(newPlayerAttack);
   enemieAttackss.appendChild(newEnemieAttack);
 }
 
 /* La función createFinalMessage crea un elemento p para mostrar el resultado final del juego (ganador o empate) y lo agrega al DOM. También deshabilita los botones de ataque.*/
 function createFinalMessage(final) {
-  let sectionMessages = document.getElementById("resulta");
-
   sectionMessages.innerHTML = final;
-
   //Aqui deshabilitamos los bototnes de ataque cuando termina el juego
-  let buttonFire = document.getElementById("button-fire");
   buttonFire.disabled = true;
-  let buttonWater = document.getElementById("button-water");
   buttonWater.disabled = true;
-  let buttonEarth = document.getElementById("button-earth");
   buttonEarth.disabled = true;
-
-  let sectionReset = document.getElementById('restart')
   sectionReset.style.display = 'block'
 }
 

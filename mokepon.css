@@ -59,8 +59,13 @@
      width: 80px;
  }
 
- input {
-     display: none;
+  input {
+     display: none; 
+ }
+
+ input:checked + label{
+    /* width: 100px; */
+    background-color: #a4359b;
  }
 
  #button-select {
